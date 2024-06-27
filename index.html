@@ -1,74 +1,45 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <title>VR Bus Simulator</title>
-  </head>
-  <body>
-    <a-scene>
-      <a-sphere id = "ball" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-    
-    <script>
-      let sceneEl = document.querySelector('a-scene');
-      let dBalls = [] // Array of the balls we are about to create
-      let orbitalRadius = 1.2
-      let cycle = 0 // Track angular revolution of balls
-      for(let i = 0; i < 7; i++) {
-        let db = document.createElement('a-sphere');
-        let ang = i * 2 * 3.14159 / (7) // Calculate angular position of the ball
-        // Use entity.setAttribute to change a certain value
-        db.setAttribute('geometry', {
-          radius: 0.2
-        })
-        // Some nice trig to get the ball in the right position
-        db.setAttribute('position', {
-          x: orbitalRadius * Math.cos(ang), 
-          y: 0.5, 
-          z: orbitalRadius * Math.sin(ang) - 4
-        })
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+        <title>VR Bus Simulator</title>
+    </head>
+    <body>
+        <a-scene>
+            <a-assets>
+                <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
+                    preload></audio>
+                    <!-- <a-asset-item id="bus" src="assets/bus.glb"></a-asset-item> -->
+                    <img id="uta-logo" src="assets/uta-logo.png">
+                    <img id="aspire-logo" src="assets/dark-aspire-logo.png">
+                    <img id="usu-logo" src="assets/usu-logo.png">
+              </a-assets>
+
+              
+              
+              <!-- Out of the box environment! -->
+              <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
+
+              <a-image src="#uta-logo" height="2" width="2" position="0, 5, -8"></a-image>
+              <a-image src="#aspire-logo" height="0.6" width="3.2" position="4, 5, -7" rotation="0 -30 0"></a-image>
+              <a-image src="#usu-logo" height="1" width="3.4" position="-4, 5, -7" rotation="0 30 0"></a-image>
+
+
+              <!-- hand tracking and a grabbable ball -->
+              
+              <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc" hand-tracking-controls="hand: left;" hand-tracking-grab-controls="hand: left;"></a-entity>
+              <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc" hand-tracking-controls="hand: right;" hand-tracking-grab-controls="hand: right;"></a-entity>
+              
+              <a-entity geometry="primitive: sphere; radius: .05" id = "ball" position="0 1.25 -0.3" color="#EF2D5E" grabbable></a-entity>
+        </a-scene>
         
-        db.setAttribute('material', {
-          color: 'orange'
-        })
-
-        sceneEl.appendChild(db) // Add the ball to the scene
-        dBalls.push(db) // Add the ball to our array of balls for later access
-      }
-
-
-      let ball = sceneEl.querySelector('#ball') // Grab the red ball that we created in HTML
-
-      let rad = 0.1 // Radius of the ball
-      let sign = 1 // Stores whether the ball is currently growing or shrinking
-      let timer = setInterval(() => {
-        rad += (0.005 * sign) // Either increase or decrease the radius of the ball
-
-        ball.setAttribute('geometry', {
-          radius: rad
-        })
         
-        // If radius is above/below threshold then flip sign
-        if(rad >= 1.2 || rad <= 0.1) {
-          sign *= -1
-        }
+        <script>
         
-        // Rotate the dragon balls
-        dBalls.forEach((d, ind) => {
-          let ang = cycle + (ind * 2 * 3.14159 / (7))
-          d.setAttribute('position', {
-            x: orbitalRadius * Math.cos(ang), 
-            y: 0.5, 
-            z: orbitalRadius * Math.sin(ang) - 4
-          })
-        });
-        cycle += 0.01
-      }, 50)
-    </script>
-  </body>
+        </script>
+    </body>
 </html>

@@ -13,28 +13,30 @@
             <a-assets>
                 <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
                     preload></audio>
-                    <!-- <a-asset-item id="bus" src="assets/bus.glb"></a-asset-item> -->
+                    <a-asset-item id="bus" src="assets/bus.glb"></a-asset-item>
                     <img id="uta-logo" src="assets/uta-logo.png">
                     <img id="aspire-logo" src="assets/dark-aspire-logo.png">
                     <img id="usu-logo" src="assets/usu-logo.png">
-              </a-assets>
+            </a-assets>
 
-              
-              
-              <!-- Out of the box environment! -->
-              <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
+            
+            
+            <!-- Out of the box environment! -->
+            <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
 
-              <a-image src="#uta-logo" height="2" width="2" position="0, 5, -8"></a-image>
-              <a-image src="#aspire-logo" height="0.6" width="3.2" position="4, 5, -7" rotation="0 -30 0"></a-image>
-              <a-image src="#usu-logo" height="1" width="3.4" position="-4, 5, -7" rotation="0 30 0"></a-image>
+            <a-entity gltf-model="#bus" position="0 1.25 -0.3" scale=".05 .05 .05" grabbable></a-entity>
+
+            <a-image src="#uta-logo" height="2" width="2" position="0 5 -8"></a-image>
+            <a-image src="#aspire-logo" height="0.6" width="3.2" position="4 5 -7" rotation="0 -30 0"></a-image>
+            <a-image src="#usu-logo" height="1" width="3.4" position="-4 5 -7" rotation="0 30 0"></a-image>
 
 
-              <!-- hand tracking and a grabbable ball -->
-              
-              <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc" hand-tracking-controls="hand: left;" hand-tracking-grab-controls="hand: left;"></a-entity>
-              <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc" hand-tracking-controls="hand: right;" hand-tracking-grab-controls="hand: right;"></a-entity>
-              
-              <a-entity geometry="primitive: sphere; radius: .05" id = "ball" position="0 1.25 -0.3" color="#EF2D5E" grabbable></a-entity>
+            <!-- hand tracking and a grabbable ball -->
+            
+            <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc" hand-tracking-controls="hand: left;" hand-tracking-grab-controls="hand: left;"></a-entity>
+            <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc" hand-tracking-controls="hand: right;" hand-tracking-grab-controls="hand: right;"></a-entity>
+            
+            
         </a-scene>
         
         

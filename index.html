@@ -13,22 +13,54 @@
             <a-assets>
                 <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
                     preload></audio>
-                    <a-asset-item id="bus" src="assets/bus.glb"></a-asset-item>
+                    <a-asset-item id="bus" src="assets/ebus.glb"></a-asset-item>
+                    <a-asset-item id="table" src="assets/simple_office_table.glb"></a-asset-item>
+                    <a-asset-item id="box-car" src="assets/box_car.glb"></a-asset-item>
+                    <a-asset-item id="canopy" src="assets/canopy.glb"></a-asset-item>
+                    <a-asset-item id="bench" src="assets/public_bench.glb"></a-asset-item>
+                    <a-asset-item id="fence" src="assets/concrete_modern_fence.glb"></a-asset-item>
+                    <a-asset-item id="sign" src="assets/sign.glb"></a-asset-item>
+                    <a-asset-item id="pantograph" src="assets/pantograph.glb"></a-asset-item>
+
+
                     <img id="uta-logo" src="assets/uta-logo.png">
                     <img id="aspire-logo" src="assets/dark-aspire-logo.png">
                     <img id="usu-logo" src="assets/usu-logo.png">
+                    <img id="abb-logo" src="assets/abb.png">
+                    <img id="direct-logo" src="assets/direct-lab-logo.png">
+
             </a-assets>
 
             
             
             <!-- Out of the box environment! -->
-            <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
+            <a-entity environment="preset: starry; groundTexture: walkernoise; grid: none; shadow: true"></a-entity>
 
-            <a-entity gltf-model="#bus" position="0 1.25 -0.3" scale=".05 .05 .05" grabbable></a-entity>
 
-            <a-image src="#uta-logo" height="2" width="2" position="0 5 -8"></a-image>
-            <a-image src="#aspire-logo" height="0.6" width="3.2" position="4 5 -7" rotation="0 -30 0"></a-image>
-            <a-image src="#usu-logo" height="1" width="3.4" position="-4 5 -7" rotation="0 30 0"></a-image>
+            <a-entity gltf-model="#table" position="0 -0.1 -0.6" scale="1.2 1.2 1.2" rotation="0 90 0"></a-entity>
+            <a-entity gltf-model="#bus" position="-0.74 0.944 -0.59" scale=".03 .03 .03" rotation="-90 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#bus" position="0.217 0.944 -0.59" scale=".03 .03 .03" rotation="-90 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#pantograph" position="-0.764 1.02 -0.58" scale=".02 .04 .04" rotation="-90 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#pantograph" position="0.2 1.02 -0.58" scale=".02 .04 .04" rotation="-90 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#box-car" position="0.23 0.958 -.93" scale=".05 .05 .05" rotation="0 90 0" grabbable></a-entity>
+            <a-entity gltf-model="#canopy" position="-0.5 1.0 -0.84" scale=".03 .03 .03" rotation="-90 180 0" grabbable></a-entity>
+            <a-entity gltf-model="#bench" position="-0.38 0.894 -0.886" scale=".0027 .002 .002" rotation="0 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#bench" position="-0.62 0.894 -0.886" scale=".0027 .002 .002" rotation="0 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#fence" position="-0.32 0.92 -0.96" scale=".06 .08 .096" rotation="0 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#fence" position="-0.448 0.92 -0.96" scale=".06 .08 .096" rotation="0 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#fence" position="-0.576 0.92 -0.96" scale=".06 .08 .096" rotation="0 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#fence" position="-0.704 0.92 -0.96" scale=".06 .08 .096" rotation="0 0 0" grabbable></a-entity>
+            <a-entity gltf-model="#sign" position="-0.062 1.12 -1.02" scale=".05 .05 .05" rotation="0 25 0" grabbable></a-entity>
+
+
+            <a-entity light="type: point; intensity: 0.5; distance: 30; decay: 2" position="0 3 1"></a-entity>
+
+            <a-image src="#uta-logo" height="5" width="5" position="-5 11 -16" ></a-image>
+            <a-image src="#abb-logo" height="1.5" width="3" position="-5 8.8 -15.99"></a-image>
+            <a-image src="#aspire-logo" height="2.4" width="12.4" position="4 11.5 -16"></a-image>
+            <a-image src="#usu-logo" height="1.5" width="4.7" position=" 7 8.8 -16"></a-image>
+            <a-image src="#direct-logo" height="9" width="9" position=" 1 8.8 -16.01"></a-image>
+            
 
 
             <!-- hand tracking and a grabbable ball -->

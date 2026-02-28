@@ -7,9 +7,9 @@ Host using:
 $ npm install
 $ npm start
 ```
-Navigate to the locally hosted site on any VR headset connected to the network.
+Navigate to the locally hosted site on any VR headset connected to the same local network.
 
-## Useful Links
+## Useful Development Links
 
 [VR emulator plugin for Chrome](https://chrome.google.com/webstore/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje?hl=en)
 
